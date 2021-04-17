@@ -1,13 +1,22 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { ApolloProvider } from "@apollo/client/react";
+import { ApolloClient, InMemoryCache } from "@apollo/client";
 import "./styles/index.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import App from "./components/App";
 import reportWebVitals from "./reportWebVitals";
 
+const pokemonClient = new ApolloClient({
+	uri: "https://beta.pokeapi.co/graphql/v1beta",
+	cache: new InMemoryCache(),
+});
+
 ReactDOM.render(
 	<React.StrictMode>
-		<App />
+		<ApolloProvider client={pokemonClient}>
+			<App />
+		</ApolloProvider>
 	</React.StrictMode>,
 	document.getElementById("root")
 );

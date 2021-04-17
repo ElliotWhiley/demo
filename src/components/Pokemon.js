@@ -1,45 +1,27 @@
-import { ApolloClient, InMemoryCache, gql } from "@apollo/client";
-import { useState, useEffect, Fragment } from "react";
+import { gql, useQuery } from "@apollo/client";
 
-const pokemonClient = new ApolloClient({
-	uri: "https://beta.pokeapi.co/graphql/v1beta",
-	cache: new InMemoryCache(),
-});
+const pokemonSpecies = gql`
+	query pokemonSpecies {
+		generations: pokemon_v2_generation {
+			pokemon_species: pokemon_v2_pokemonspecies_aggregate {
+				aggregate {
+					count
+				}
+			}
+			name
+		}
+	}
+`;
 
 const Pokemon = () => {
-	const [generations, setGenerations] = useState([]);
+	const { loading, error, data } = useQuery(pokemonSpecies);
 
-	useEffect(async () => {
-		var { data } = await pokemonClient.query({
-			query: gql`
-				query pokemonSpecies {
-					generations: pokemon_v2_generation {
-						pokemon_species: pokemon_v2_pokemonspecies_aggregate {
-							aggregate {
-								count
-							}
-						}
-						name
-					}
-				}
-			`,
-		});
-		setGenerations(data.generations);
-	}, []);
+	if (loading) return <p>Loading...</p>;
+	if (error) return <p>Error :(</p>;
 
-	return (
-		<Fragment>
-			{generations.length ? (
-				<div>
-					{generations.map((generation) => (
-						<div>{generation.name}</div>
-					))}
-				</div>
-			) : (
-				<span>loading...</span>
-			)}
-		</Fragment>
-	);
+	return data.generations.map(({ name }) => (
+		<button key={name}>{name}</button>
+	));
 };
 
 export default Pokemon;
