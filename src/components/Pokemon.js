@@ -85,9 +85,5 @@ const PokemonList = (props) => {
 };
 
 const Button = (props) => {
-	return (
-		<button onClick={props.handleClick} key={props.id}>
-			{props.text}
-		</button>
-	);
+	return <button onClick={props.handleClick}>{props.text}</button>;
 };
