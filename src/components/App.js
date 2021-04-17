@@ -6,35 +6,54 @@ import Pokemon from "./Pokemon";
 
 const App = () => {
 	return (
-		<Router>
-			<div>
-				<ul>
-					<li>
-						<Link to="/">Home</Link>
-					</li>
-					<li>
-						<Link to="/jokes">Jokes</Link>
-					</li>
-					<li>
-						<Link to="/pokemon">Pokemon</Link>
-					</li>
-				</ul>
+		<header className="p-3 mb-3 App">
+			<div className="container">
+				<Router>
+					<div className="flex-wrap align-items-center justify-content-center justify-content-lg-center">
+						<ul className="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+							<li>
+								<Link
+									className="nav-link px-2 link-dark"
+									to="/"
+								>
+									Home
+								</Link>
+							</li>
+							<li>
+								<Link
+									className="nav-link px-2 link-dark"
+									to="/jokes"
+								>
+									Jokes
+								</Link>
+							</li>
+							<li>
+								<Link
+									className="nav-link px-2 link-dark"
+									to="/pokemon"
+								>
+									Pokemon
+								</Link>
+							</li>
+						</ul>
 
-				<hr />
+						<hr />
 
-				<Switch>
-					<Route exact path="/">
-						<Home />
-					</Route>
-					<Route path="/jokes">
-						<Jokes />
-					</Route>
-					<Route path="/pokemon">
-						<Pokemon />
-					</Route>
-				</Switch>
+						<Switch>
+							<Route exact path="/">
+								<Home />
+							</Route>
+							<Route path="/jokes">
+								<Jokes />
+							</Route>
+							<Route path="/pokemon">
+								<Pokemon />
+							</Route>
+						</Switch>
+					</div>
+				</Router>
 			</div>
-		</Router>
+		</header>
 	);
 };
 
