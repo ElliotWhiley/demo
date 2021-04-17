@@ -8,7 +8,7 @@ const getGitHubProfile = async (userName) => {
 		return response.data;
 	} catch (exception) {
 		console.log("Error retrieving GitHub profile", exception);
-		return;
+		throw exception;
 	}
 };
 
