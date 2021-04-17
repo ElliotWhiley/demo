@@ -1,7 +1,7 @@
 const Home = () => {
 	return (
 		<div>
-			<h2>Home</h2>
+			<h2>A demo of full stack JS development using a few samples</h2>
 		</div>
 	);
 };
