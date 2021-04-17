@@ -1,5 +1,5 @@
 import { useState } from "react";
-import getRandomJoke from "../JokeService";
+import getRandomJoke from "../services/JokeService";
 
 const Jokes = () => {
 	const [joke, setJoke] = useState({});
