@@ -1,22 +1,13 @@
 import { useState } from "react";
-import axios from "axios";
+import getGitHubProfile from "../services/GitHubService";
 
 const Form = (props) => {
 	const [userName, setUserName] = useState("");
 
 	const handleSubmit = async (event) => {
 		event.preventDefault();
-		let response;
-		try {
-			response = await axios.get(
-				`https://api.github.com/users/${userName}`
-			);
-		} catch (exception) {
-			console.log("caught it!", exception);
-			return;
-		}
-
-		props.onSubmit(response.data);
+		const gitHubProfile = await getGitHubProfile(userName);
+		props.onSubmit(gitHubProfile);
 		setUserName("");
 		document.getElementById("username-input").focus();
 	};
