@@ -2,6 +2,7 @@ import "../styles/App.css";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Home from "./Home";
 import Jokes from "./Jokes";
+import GitHubCards from "./GitHubCards";
 import Pokemon from "./Pokemon";
 
 const App = () => {
@@ -30,6 +31,14 @@ const App = () => {
 							<li>
 								<Link
 									className="nav-link px-2 link-dark"
+									to="/github-cards"
+								>
+									GitHub Cards
+								</Link>
+							</li>
+							<li>
+								<Link
+									className="nav-link px-2 link-dark"
 									to="/pokemon"
 								>
 									Pokemon
@@ -45,6 +54,9 @@ const App = () => {
 							</Route>
 							<Route path="/jokes">
 								<Jokes />
+							</Route>
+							<Route path="/github-cards">
+								<GitHubCards />
 							</Route>
 							<Route path="/pokemon">
 								<Pokemon />
