@@ -1,51 +1,5 @@
-import "./App.css";
 import { useState } from "react";
-import getRandomJoke from "./JokeService";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-
-const App = () => {
-	return (
-		<Router>
-			<div>
-				<ul>
-					<li>
-						<Link to="/">Home</Link>
-					</li>
-					<li>
-						<Link to="/jokes">Jokes</Link>
-					</li>
-					<li>
-						<Link to="/pokemon">Pokemon</Link>
-					</li>
-				</ul>
-
-				<hr />
-
-				<Switch>
-					<Route exact path="/">
-						<Home />
-					</Route>
-					<Route path="/jokes">
-						<Jokes />
-					</Route>
-					<Route path="/pokemon">
-						<Pokemon />
-					</Route>
-				</Switch>
-			</div>
-		</Router>
-	);
-};
-
-export default App;
-
-const Home = () => {
-	return (
-		<div>
-			<h2>Home</h2>
-		</div>
-	);
-};
+import getRandomJoke from "../JokeService";
 
 const Jokes = () => {
 	const [joke, setJoke] = useState({});
@@ -57,6 +11,7 @@ const Jokes = () => {
 		setDisplayPunchline(false);
 		setDisplayPunchlineButton(true);
 	};
+
 	return (
 		<div className="App">
 			<header className="p-3 mb-3 border-bottom">
@@ -96,10 +51,4 @@ const Jokes = () => {
 	);
 };
 
-const Pokemon = () => {
-	return (
-		<div>
-			<h2>Pokemon</h2>
-		</div>
-	);
-};
+export default Jokes;
