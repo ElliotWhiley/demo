@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Home from "./Home";
 import Jokes from "./Jokes";
 import GitHubCards from "./GitHubCards";
+import StarMatch from "./StarMatch";
 import Pokemon from "./Pokemon";
 
 const App = () => {
@@ -39,6 +40,14 @@ const App = () => {
 							<li>
 								<Link
 									className="nav-link px-2 link-dark"
+									to="/star-match"
+								>
+									Star Match
+								</Link>
+							</li>
+							<li>
+								<Link
+									className="nav-link px-2 link-dark"
 									to="/pokemon"
 								>
 									Pokemon
@@ -57,6 +66,9 @@ const App = () => {
 							</Route>
 							<Route path="/github-cards">
 								<GitHubCards />
+							</Route>
+							<Route path="/star-match">
+								<StarMatch />
 							</Route>
 							<Route path="/pokemon">
 								<Pokemon />
