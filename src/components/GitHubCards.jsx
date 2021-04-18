@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import Form from "./Form.js";
-import CardList from "./CardList.js";
+import Form from "./Form";
+import CardList from "./CardList";
 
 const GitHubCards = () => {
 	const [profiles, setProfiles] = useState([]);

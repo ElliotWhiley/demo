@@ -1,7 +1,7 @@
 import { gql, useQuery } from "@apollo/client";
 import { useState, Fragment } from "react";
-import PokemonList from "./PokemonList.js";
-import Button from "./Button.js";
+import PokemonList from "./PokemonList";
+import Button from "./Button";
 
 const POKEMON_GENERATIONS_QUERY = gql`
 	query pokemonGenerations {

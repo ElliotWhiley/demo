@@ -4,7 +4,7 @@ import { ApolloProvider } from "@apollo/client/react";
 import { ApolloClient, InMemoryCache } from "@apollo/client";
 import "./styles/index.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import App from "./components/App";
+import App from "./components/App.jsx";
 import reportWebVitals from "./reportWebVitals";
 
 const pokemonClient = new ApolloClient({

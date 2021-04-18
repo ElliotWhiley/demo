@@ -38,25 +38,30 @@ const PokemonList = (props) => {
 				props.generation
 		)
 		.map(({ pokemon_v2_pokemonform }) => (
-			<div key={pokemon_v2_pokemonform.id}>
-				<ul>
-					<li>Id: {pokemon_v2_pokemonform.id}</li>
-					<li>Name: {pokemon_v2_pokemonform.name}</li>
-					<li>
-						Height:{" "}
-						{pokemon_v2_pokemonform.pokemon_v2_pokemon.height}
-					</li>
-					<li>
-						Habitat:{" "}
-						{
-							pokemon_v2_pokemonform.pokemon_v2_pokemon
-								.pokemon_v2_pokemonspecy
-								.pokemon_v2_pokemonhabitat.name
-						}
-					</li>
-				</ul>
-			</div>
+			<PokemonCard
+				key={pokemon_v2_pokemonform.id}
+				id={pokemon_v2_pokemonform.id}
+				name={pokemon_v2_pokemonform.name}
+				height={pokemon_v2_pokemonform.pokemon_v2_pokemon.height}
+				habitat={
+					pokemon_v2_pokemonform.pokemon_v2_pokemon
+						.pokemon_v2_pokemonspecy.pokemon_v2_pokemonhabitat.name
+				}
+			></PokemonCard>
 		));
 };
 
 export default PokemonList;
+
+const PokemonCard = (props) => {
+	return (
+		<div>
+			<ul>
+				<li>Id: {props.id}</li>
+				<li>Name: {props.name}</li>
+				<li>Height: {props.height}</li>
+				<li>Habitat: {props.habitat}</li>
+			</ul>
+		</div>
+	);
+};
