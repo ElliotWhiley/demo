@@ -1,5 +1,5 @@
 import { gql, useQuery } from "@apollo/client";
-import { useState, Fragment } from "react";
+import { useState } from "react";
 import PokemonList from "./PokemonList";
 import Button from "./Button";
 
@@ -30,7 +30,7 @@ const Pokemon = () => {
 	if (error) return <p>Error :(</p>;
 
 	return (
-		<Fragment>
+		<>
 			{data.generations.map(({ id }) => (
 				<Button
 					handleClick={() => displayPokemonGeneration(id)}
@@ -41,7 +41,7 @@ const Pokemon = () => {
 			{displayPokemon && (
 				<PokemonList generation={generation}>hi</PokemonList>
 			)}
-		</Fragment>
+		</>
 	);
 };
 
