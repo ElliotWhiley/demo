@@ -45,8 +45,9 @@ const PokemonList = (props) => {
 				name={pokemon_v2_pokemonform.name}
 				height={pokemon_v2_pokemonform.pokemon_v2_pokemon.height}
 				habitat={
-					pokemon_v2_pokemonform.pokemon_v2_pokemon
-						.pokemon_v2_pokemonspecy.pokemon_v2_pokemonhabitat.name
+					pokemon_v2_pokemonform?.pokemon_v2_pokemon
+						?.pokemon_v2_pokemonspecy?.pokemon_v2_pokemonhabitat
+						?.name ?? "Unknown"
 				}
 				image={`https://pokeres.bastionbot.org/images/pokemon/${pokemon_v2_pokemonform.id}.png`}
 			></PokemonCard>
