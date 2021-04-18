@@ -6,13 +6,20 @@ const PokemonList = (props) => {
 			pokemon_v2_pokemonformgeneration(
 				where: { generation_id: { _eq: ${props.generation} } }
 			) {
-				id
 				pokemon_v2_pokemonform {
 					name
 					id
 					pokemon_v2_pokemonformgenerations {
 						generation_id
 					}
+                    pokemon_v2_pokemon {
+                        height
+                        pokemon_v2_pokemonspecy {
+                            pokemon_v2_pokemonhabitat {
+                                name
+                            }
+                        }
+                    }
 				}
 			}
 		}
@@ -32,9 +39,22 @@ const PokemonList = (props) => {
 		)
 		.map(({ pokemon_v2_pokemonform }) => (
 			<div key={pokemon_v2_pokemonform.id}>
-				<p key={pokemon_v2_pokemonform.id}>
-					Name: {pokemon_v2_pokemonform.name}
-				</p>
+				<ul>
+					<li>Id: {pokemon_v2_pokemonform.id}</li>
+					<li>Name: {pokemon_v2_pokemonform.name}</li>
+					<li>
+						Height:{" "}
+						{pokemon_v2_pokemonform.pokemon_v2_pokemon.height}
+					</li>
+					<li>
+						Habitat:{" "}
+						{
+							pokemon_v2_pokemonform.pokemon_v2_pokemon
+								.pokemon_v2_pokemonspecy
+								.pokemon_v2_pokemonhabitat.name
+						}
+					</li>
+				</ul>
 			</div>
 		));
 };
