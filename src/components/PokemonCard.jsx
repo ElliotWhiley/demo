@@ -6,6 +6,9 @@ const PokemonCard = (props) => {
 				<li>Name: {props.name}</li>
 				<li>Height: {props.height}</li>
 				<li>Habitat: {props.habitat}</li>
+				<li>
+					<img alt="pokemon" src={props.image}></img>
+				</li>
 			</ul>
 		</div>
 	);

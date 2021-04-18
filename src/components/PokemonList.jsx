@@ -48,6 +48,7 @@ const PokemonList = (props) => {
 					pokemon_v2_pokemonform.pokemon_v2_pokemon
 						.pokemon_v2_pokemonspecy.pokemon_v2_pokemonhabitat.name
 				}
+				image={`https://pokeres.bastionbot.org/images/pokemon/${pokemon_v2_pokemonform.id}.png`}
 			></PokemonCard>
 		));
 };
